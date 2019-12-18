@@ -2,4 +2,15 @@
   .pc-menu {
     display: none !important;
   }
+  #sie-menu {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .solid-color-mode, .border-color-mode {
+    .post-text {
+      font-size: 16px;
+    }
+  }
 }
