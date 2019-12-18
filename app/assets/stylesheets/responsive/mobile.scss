@@ -1,4 +1,7 @@
 @media screen and (max-width: 767px) {
+  .container {
+    width: 100% !important;
+  }
   .pc-menu {
     display: none !important;
   }
@@ -12,5 +15,11 @@
     .post-text {
       font-size: 16px;
     }
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1000px) {
+  .container {
+    width: 100% !important;
   }
 }
