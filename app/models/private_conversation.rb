@@ -1,0 +1,2 @@
+class PrivateConversation < ApplicationRecord
+end
