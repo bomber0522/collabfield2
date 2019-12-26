@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Private::ConbersationsHelper, type: :helper do
+RSpec.describe Private::ConversationsHelper, type: :helper do
   context '#load_private_messages' do
     let(:conversation) { create(:private_conversation) }
 
@@ -12,7 +12,7 @@ RSpec.describe Private::ConbersationsHelper, type: :helper do
     end
 
     it "returns empty partial's path" do
-      expect(helper.load_messages(conversation)).to eq (
+      expect(helper.load_private_messages(conversation)).to eq (
         'shared/empty_partial'
       )
     end
