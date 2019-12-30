@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Private::Message, type: :model do
   
-  # let(:message) { build(:private_message) }
+  let(:message) { build(:private_message) }
 
   context 'Methods' do
     it 'gets a previous message' do

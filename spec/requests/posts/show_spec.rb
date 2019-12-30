@@ -1,12 +1,12 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 RSpec.describe "show", :type => :request do
-  
+
   shared_examples 'render_show_template' do
     let(:post) { create(:post) }
     it 'renders a show template' do
       get post_path(post)
-      expect(response).to render_show_template(:show)
+      expect(response).to render_template(:show)
     end
   end
 
