@@ -11,6 +11,9 @@ describe OrderConversationsService do
       conversation2 = create(:private_conversation,
                               sender_id: user.id,
                               messages: [create(:private_message)])
+      conversation3 = create(:private_conversation,
+                              sender_id: user.id,
+                              messages: [create(:private_message)])
       conversations = [conversation2, conversation1]
       expect(OrderConversationsService.new({user: user}).call).to eq conversations
     end
