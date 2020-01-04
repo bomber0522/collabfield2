@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.descrive Group::Conversation, type: :model do
-  
+RSpec.describe Group::Conversation, type: :model do
+
   let(:conversation) { build(:group_conversation) }
 
   context 'Associations' do
@@ -13,7 +13,7 @@ RSpec.descrive Group::Conversation, type: :model do
     it 'has_many messages' do
       association = described_class.reflect_on_association(:messages)
       expect(association.macro).to eq :has_many
-      expect(association.options[:class_name]).to eq 'Group::Messages'
+      expect(association.options[:class_name]).to eq 'Group::Message'
       expect(association.options[:foreign_key]).to eq 'conversation_id'
       expect(association.options[:dependent]).to eq :destroy
     end
