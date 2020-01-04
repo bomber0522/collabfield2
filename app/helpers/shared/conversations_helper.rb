@@ -1,6 +1,6 @@
 module Shared::ConversationsHelper
-  
-  def private_conv_seen_status(conversation)
+
+  def private_conv_seen_status(conversation) 
     # if the latest message of a conversation is not created by a current_user
     # and it is unseen, return an unseen-conv value
     not_created_by_user = conversation.messages.last.user_id != current_user.id
@@ -8,7 +8,7 @@ module Shared::ConversationsHelper
     not_created_by_user && unseen ? 'unseen-conv' : ''
   end
 
-  def def group_conv_seen_status(conversation, current_user)
+  def group_conv_seen_status(conversation, current_user)
     # if the current_user is nil, it means that the helper is called from the service
     # return an empty string
     if current_user == nil
