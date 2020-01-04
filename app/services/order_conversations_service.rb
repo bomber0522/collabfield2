@@ -10,8 +10,8 @@ class OrderConversationsService
                                                      .includes(:messages)
     all_group_conversations = @user.group_conversations.includes(:messages)
     all_conversations = all_private_conversations + all_group_conversations
-    
-    return all_conversations = all_private_conversations.sort{ |a, b| 
+
+    return all_conversations = all_conversations.sort{ |a, b| 
       b.messages.last.created_at <=> a.messages.last.created_at
     }
   end
