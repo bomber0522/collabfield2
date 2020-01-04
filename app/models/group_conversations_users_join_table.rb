@@ -1,0 +1,2 @@
+class GroupConversationsUsersJoinTable < ApplicationRecord
+end
