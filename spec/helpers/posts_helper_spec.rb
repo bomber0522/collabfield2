@@ -101,7 +101,7 @@ RSpec.describe PostsHelper, :type => :helper do
 
     it "retruns an empty partial's path" do
       helper.stub(:user_signed_in?).and_return(true)
-      assing(:post, create(:post, user_id: @current_user.id))
+      assin(:post, create(:post, user_id: @current_user.id))
 
       expect(helper.contact_user_partial_path).to(
         eq 'shared/empty_partial'
