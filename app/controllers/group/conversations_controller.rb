@@ -17,6 +17,16 @@ class Group::ConversationsController < ApplicationController
     end
   end
 
+  def close
+    @conversation = Group::Conversation.find(params[:id])
+
+    session[:create_group_conversations].delete(@conversation.id)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def add_to_conversations
