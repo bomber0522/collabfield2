@@ -43,14 +43,14 @@ class Group::ConversationsController < ApplicationController
   end
 
   def already_added?
-    session[:create_group_conversations],include?(@conversation.id)
+    session[:group_conversations].include?(@conversation.id)
   end
 
   def create_group_conversation
     Group::NewConversationService.new({
       creator_id: params[:creator_id],
       private_conversation_id: params[:private_conversation_id],
-      new_user_id: params[:create_group_conversation][:id]
+      new_user_id: params[:group_conversation][:id]
     }).call
   end
 end
