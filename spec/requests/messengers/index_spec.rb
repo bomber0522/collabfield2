@@ -1,10 +1,10 @@
 require 'rails_helper'
 include Warden::Test::Helpers
-RSpec.describe "new", :type => :request do
+RSpec.describe "index", :type => :request do
 
   context 'non-signed in user' do
-    it 'redirects to a root path' do
-      get '/posts/new'
+    it 'redirect to root_path' do
+      get '/messenger'
       expect(response).to redirect_to(root_path)
     end
   end
@@ -13,9 +13,9 @@ RSpec.describe "new", :type => :request do
     let(:user) { create(:user) }
     before(:each) { login_as user }
 
-    it 'renders a new template' do
-      get '/posts/new'
-      expect(response).to render_template(:new)
+    it 'renders an index template' do
+      get '/messenger'
+      expect(response).to render_template(:index)
     end
   end
 end
