@@ -3,11 +3,11 @@
 </div>
 
 <!-- Close the conversation button -->
-<%= link_to "X",
-            colose_group_conversation_path(conversation),
-            class: 'close-coversation',
-            title: 'Close',
-            remote: true,
+<%= link_to "X", 
+            close_group_conversation_path(conversation), 
+            class: 'close-conversation', 
+            title: 'Close', 
+            remote: true, 
             method: :post %>
 
 <!-- Add more contacts to the conversation button -->
