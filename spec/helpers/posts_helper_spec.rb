@@ -36,15 +36,13 @@ RSpec.describe PostsHelper, :type => :helper do
 
   context '#no_posts_partial_path' do
     it "returns a no_posts partial's path" do
-      assign(:posts, [])
-      expect(helper.no_posts_partial_path).to (
-        eq 'posts/branch/no_posts'
+      expect(helper.no_posts_partial_path([])).to (
+        eq 'posts/shared/no_posts'
       )
     end
 
     it "returns an empty partial's path" do
-      assign(:posts, [1])
-      expect(helper.no_posts_partial_path).to (
+      expect(helper.no_posts_partial_path([1])).to (
         eq 'shared/empty_partial'
       )
     end
@@ -58,7 +56,7 @@ RSpec.describe PostsHelper, :type => :helper do
       )
     end
 
-    it "return a branch_page partial's path" do
+    it "returns a branch_page partial's path" do
       helper.stub(:current_page?).and_return(false)
       expect(helper.post_format_partial_path).to (
         eq 'posts/post/branch_page'
@@ -69,7 +67,6 @@ RSpec.describe PostsHelper, :type => :helper do
   context '#update_pagination_partial_path' do
     it "returns an update_pagination partial's path" do
       posts = double('posts', :next_page => 2)
-      assign(:posts, posts)
       assign(:posts, posts)
       expect(helper.update_pagination_partial_path).to(
         eq 'posts/posts_pagination_page/update_pagination'
@@ -95,13 +92,13 @@ RSpec.describe PostsHelper, :type => :helper do
       helper.stub(:user_signed_in?).and_return(true)
       assign(:post, create(:post, user_id: create(:user, id: 2).id))
       expect(helper.contact_user_partial_path).to(
-        eq 'posts/show/contact_user'
+        eq 'posts/show/contact_user' 
       )
     end
 
-    it "retruns an empty partial's path" do
+    it "returns an empty partial's path" do
       helper.stub(:user_signed_in?).and_return(true)
-      assin(:post, create(:post, user_id: @current_user.id))
+      assign(:post, create(:post, user_id: @current_user.id))
 
       expect(helper.contact_user_partial_path).to(
         eq 'shared/empty_partial'

@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe ApplicationHelper, :type => :helper do
   context '#private_conversations_windows' do
     let(:conversations) { conversations = create_list(:private_conversation, 2) }
-
+    
     it 'returns private conversations' do
-      assign(:private_conversations_windows, converations)
+      assign(:private_conversations_windows, conversations)
       controller.params[:controller] = 'not_messengers'
       expect(helper.private_conversations_windows).to eq conversations
     end
