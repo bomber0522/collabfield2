@@ -29,5 +29,4 @@ RSpec.feature "Infinite scroll", :type => :feature do
     visit team_posts_path
     check_posts_count
   end
-
 end
