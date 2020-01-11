@@ -16,7 +16,7 @@ class Private::MessageBroadcastJob < ApplicationJob
       "private_conversations_#{sender.id}",
       message: render_message(message, previous_message, sender),
       conversation_id: message.conversation_id,
-      recipent_info: recipient
+      recipient_info: recipient
     )
   end
 
@@ -33,8 +33,8 @@ class Private::MessageBroadcastJob < ApplicationJob
   def render_message(message, previous_message, user)
     ApplicationController.render(
       partial: 'private/messages/message',
-      locals: { message: message,
-                previous_message: previous_message,
+      locals: { message: message, 
+                previous_message: previous_message, 
                 user: user }
     )
   end
