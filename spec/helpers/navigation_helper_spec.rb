@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NavigationHelper, :type => :helper do
-  
+
   context 'signed in user' do
     before(:each) { helper.stub(:user_signed_in?).and_return(true) }
 
@@ -13,7 +13,7 @@ RSpec.describe NavigationHelper, :type => :helper do
       end
     end
   end
-  
+
   context 'non-signed in user' do
     before(:each) { helper.stub(:user_signed_in?).and_return(false) }
     
@@ -29,7 +29,7 @@ RSpec.describe NavigationHelper, :type => :helper do
   context '#nav_header_content_partials' do
     it "returns messenger_header partial's path" do
       controller.params[:controller] = 'messengers'
-      partials = ['layouts/navegation/header/messenger_header']
+      partials = ['layouts/navigation/header/messenger_header']
       expect(helper.nav_header_content_partials).to eq partials
     end
 
@@ -44,7 +44,7 @@ RSpec.describe NavigationHelper, :type => :helper do
     it "returns partials' paths for buttons and dropdowns" do
       controller.params[:controller] = 'not_messengers'
       view.stub("user_signed_in?").and_return(true)
-      patials = ['layouts/navigation/header/toggle_button']
+      partials = ['layouts/navigation/header/toggle_button']
       partials << 'layouts/navigation/header/home_button'
       partials << 'layouts/navigation/header/dropdowns'
       expect(helper.nav_header_content_partials).to eq partials
@@ -54,7 +54,7 @@ RSpec.describe NavigationHelper, :type => :helper do
   context '#conversation_header_partial_path' do
     it "returns a partial's path for a private conversation's header" do
       conversation = create(:private_conversation)
-      expect(helper.conversation_header_partial_path(conversation)).to eq(
+      expect(helper.conversation_header_partial_path(conversation)). to eq(
         'layouts/navigation/header/dropdowns/conversations/private'
       )
     end
