@@ -3,9 +3,9 @@ class Group::Message < ApplicationRecord
   serialize :added_new_users, Array
   self.table_name = "group_messages"
 
-  belongs_to :conversation,
-             class_name: 'Group::Conversation',
-             foreign_key: 'conversation_id'
+  belongs_to  :conversation,
+              class_name: 'Group::Conversation',
+              foreign_key: 'conversation_id'
   belongs_to :user
 
   validates :content, presence: true
