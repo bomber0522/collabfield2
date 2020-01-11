@@ -1,7 +1,6 @@
 require 'rails_helper'
-include Warden::Test::Helpers
 RSpec.describe "branches", :type => :request do
-  
+
   shared_examples 'render_templates' do
     it 'renders a hobby template' do
       get '/posts/hobby'
@@ -19,10 +18,7 @@ RSpec.describe "branches", :type => :request do
     end
   end
 
-  context 'signed in user' do
-    let(:user) { create(:user) }
-    before(:each) { login_as user }
-
+  context 'non-signed in user' do
     it_behaves_like 'render_templates'
   end
 
