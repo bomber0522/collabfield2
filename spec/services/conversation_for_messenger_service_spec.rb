@@ -5,7 +5,7 @@ describe ConversationForMessengerService do
   let(:user1) { create(:user) }
   let(:user2) { create(:user) }
   let(:group_conversation) { create(:group_conversation) }
-  let(:private_conversation) do
+  let(:private_conversation) do 
     create(:private_conversation,
             sender_id: user1.id,
             recipient_id: user2.id)
