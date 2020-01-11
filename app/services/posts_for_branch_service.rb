@@ -5,7 +5,7 @@ class PostsForBranchService
     @branch = params[:branch]
   end
 
-  # get posts deppending on the request
+  # get posts depending on the request
   def call
     if @category.blank? && @search.blank?
       posts = Post.by_branch(@branch).all
